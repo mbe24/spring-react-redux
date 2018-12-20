@@ -7,7 +7,7 @@ class Hour extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:8080/app/api/v1/time')
+    fetch('/app/api/v1/time')
       .then(response => response.json())
       .then(time => {
         this.setState({ value: time.hour });
