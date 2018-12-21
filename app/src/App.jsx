@@ -1,19 +1,49 @@
-import React from 'react';
-import './App.css';
-import Hour from './components/Hour';
-import Minute from './components/Minute';
-import Second from './components/Second';
+import React from "react";
+import { connect } from "react-redux";
+import "./App.css";
+import Hour from "./components/Hour";
+import Minute from "./components/Minute";
+import Second from "./components/Second";
+import { fetchTime } from "./actions/timeActions";
 
+// or without decorator
+// see: https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013
+//@connect(store => {
+//  return { hour: store.hour, minute: store.minute, second: store.second };
+//})
 class App extends React.Component {
+  componentWillMount() {
+    this.props.fetchTime();
+  }
+
+  fetchTime = event => {
+    this.props.fetchTime();
+  };
+
   render() {
     return (
       <div className="App">
+        <div>
+          <button onClick={this.fetchTime}>Get time!</button>
+        </div>
+
         <Hour />
-        <Minute value="10" />
-        <Second value="10" />
+        <Minute />
+        <Second />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchTime: () => dispatch(fetchTime())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

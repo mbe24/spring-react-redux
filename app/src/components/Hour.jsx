@@ -1,22 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Hour.css';
 
 class Hour extends React.Component {
-  state = {
-    value: '00'
-  };
-
-  componentDidMount() {
-    fetch('/app/api/v1/time')
-      .then(response => response.json())
-      .then(time => {
-        this.setState({ value: time.hour });
-      });
-  }
-
   render() {
-    return <p className="Hour">{this.state.value}:</p>;
+    return <p className="Hour">{this.props.hour}:</p>;
   }
 }
 
-export default Hour;
+const mapStateToProps = state => ({ hour: state.hourReducer.hour });
+
+export default connect(
+  mapStateToProps,
+  null
+)(Hour);
