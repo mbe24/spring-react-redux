@@ -7,5 +7,6 @@ import reducer from './reducers';
 // import promise from 'redux-promise-middleware';
 //const middleware = applyMiddleware(promise(), thunk);
 
+// maybe use add logger to middleware: https://github.com/LogRocket/redux-logger#install
 const middleware = applyMiddleware(thunk);
 export default createStore(reducer, middleware);

@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import "./App.css";
-import Hour from "./components/Hour";
-import Minute from "./components/Minute";
-import Second from "./components/Second";
-import { fetchTime } from "./actions/timeActions";
+import React from 'react';
+import { connect } from 'react-redux';
+import './App.css';
+import Hour from './components/Hour';
+import Minute from './components/Minute';
+import Second from './components/Second';
+import { fetchTime, fetchTimePoll } from './actions/timeActions';
 
 // or without decorator
 // see: https://blog.logrocket.com/react-redux-connect-when-and-how-to-use-it-f2a1edab2013
@@ -13,7 +13,7 @@ import { fetchTime } from "./actions/timeActions";
 //})
 class App extends React.Component {
   componentWillMount() {
-    this.props.fetchTime();
+    this.props.fetchTimePoll();
   }
 
   fetchTime = event => {
@@ -40,7 +40,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTime: () => dispatch(fetchTime())
+  fetchTime: () => dispatch(fetchTime()),
+  fetchTimePoll: () => dispatch(fetchTimePoll())
 });
 
 export default connect(
