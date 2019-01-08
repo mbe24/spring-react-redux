@@ -1,6 +1,6 @@
-import * as TYPE from './actionTypes';
+import * as ACTION from './actionTypes';
 
 export const setHour = hour => ({
-  type: TYPE.FETCH_HOUR,
+  type: ACTION.FETCH_HOUR,
   payload: hour
 });
