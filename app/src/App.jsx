@@ -12,11 +12,11 @@ import { fetchTime, fetchTimePoll } from './actions/timeActions';
 //  return { hour: store.hour, minute: store.minute, second: store.second };
 //})
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTimePoll();
   }
 
-  fetchTime = event => {
+  fetchTime = (event) => {
     this.props.fetchTime();
   };
 
@@ -35,16 +35,13 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  ...state
+const mapStateToProps = (state) => ({
+  ...state,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   fetchTime: () => dispatch(fetchTime()),
-  fetchTimePoll: () => dispatch(fetchTimePoll())
+  fetchTimePoll: () => dispatch(fetchTimePoll()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

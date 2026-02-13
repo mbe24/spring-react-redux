@@ -8,9 +8,6 @@ class Hour extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ hour: state.hourReducer.hour });
+const mapStateToProps = (state) => ({ hour: state.hourReducer.hour });
 
-export default connect(
-  mapStateToProps,
-  null
-)(Hour);
+export default connect(mapStateToProps, null)(Hour);

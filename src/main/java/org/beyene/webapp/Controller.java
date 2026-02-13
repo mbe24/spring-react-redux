@@ -32,7 +32,7 @@ public class Controller {
         return String.format("Hello %s!", Objects.toString(name));
     }
 
-    @GetMapping(value = "/time", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @GetMapping(value = "/time", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Time getTime() {
         LocalTime now = LocalTime.now();

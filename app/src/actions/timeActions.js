@@ -1,15 +1,15 @@
 import * as ACTION from './actionTypes';
 
-export const fetchTime = () => dispatch =>
+export const fetchTime = () => (dispatch) =>
   fetch('/app/api/v1/time')
-    .then(response => response.json())
-    .then(time => {
+    .then((response) => response.json())
+    .then((time) => {
       console.log('Sucessfully fetched time...');
       dispatch({ type: ACTION.FETCH_HOUR, payload: time.hour });
       dispatch({ type: ACTION.FETCH_MINUTE, payload: time.minute });
       dispatch({ type: ACTION.FETCH_SECOND, payload: time.second });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log('Error while fetching time...');
       dispatch({ type: ACTION.FETCH_HOUR_ERROR, payload: err });
       dispatch({ type: ACTION.FETCH_MINUTE_ERROR, payload: err });
@@ -21,7 +21,7 @@ export const fetchTime = () => dispatch =>
 const createPoller = (interval, initialDelay) => {
   let timeoutId = null;
   let poller = () => {};
-  return fn => {
+  return (fn) => {
     window.clearTimeout(timeoutId);
     poller = () => {
       timeoutId = window.setTimeout(poller, interval);
@@ -39,16 +39,16 @@ const createPollingAction = (action, interval, initialDelay) => {
   return () => (dispatch, getState) => poll(() => action(dispatch, getState));
 };
 
-export const fetchTimePoll = createPollingAction(dispatch => {
+export const fetchTimePoll = createPollingAction((dispatch) => {
   fetch('/app/api/v1/time')
-    .then(response => response.json())
-    .then(time => {
+    .then((response) => response.json())
+    .then((time) => {
       console.log('Sucessfully fetched time...');
       dispatch({ type: ACTION.FETCH_HOUR, payload: time.hour });
       dispatch({ type: ACTION.FETCH_MINUTE, payload: time.minute });
       dispatch({ type: ACTION.FETCH_SECOND, payload: time.second });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log('Error while fetching time...');
       dispatch({ type: ACTION.FETCH_HOUR_ERROR, payload: err });
       dispatch({ type: ACTION.FETCH_MINUTE_ERROR, payload: err });

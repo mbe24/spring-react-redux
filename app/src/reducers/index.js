@@ -8,5 +8,5 @@ import secondReducer from './secondReducer';
 export default combineReducers({
   hourReducer: hourReducer,
   minuteReducer: minuteReducer,
-  secondReducer: secondReducer
+  secondReducer: secondReducer,
 });
