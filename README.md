@@ -4,8 +4,8 @@ POC client/server application with a frontend based on React and Redux and a bac
 ## Tech Stack
 
 ### Backend
-- **Spring Boot**: 3.4.2
-- **Java**: 21 LTS
+- **Spring Boot**: 3.5.10
+- **Java**: 25
 - **Gradle**: 9.3.1
 
 ### Frontend
@@ -15,7 +15,7 @@ POC client/server application with a frontend based on React and Redux and a bac
 
 ## Requirements
 
-- Java 21 or higher
+- Java 25 or higher
 - Node.js 18 or higher
 - npm 8 or higher
 
