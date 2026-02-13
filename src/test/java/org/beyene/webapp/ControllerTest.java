@@ -1,15 +1,12 @@
 package org.beyene.webapp;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ControllerTest {
 
@@ -22,13 +19,13 @@ public class ControllerTest {
     public void testGetHello() {
         String name = "John Doe";
         String body = this.restTemplate.getForObject(PATH + "/hello?name=" + name, String.class);
-        Assert.assertThat(body, Matchers.is(String.format("Hello %s!", name)));
+        assertThat(body).isEqualTo(String.format("Hello %s!", name));
     }
 
     @Test
     public void testGetTest() {
         String body = this.restTemplate.getForObject(PATH + "/test?name=throw", String.class);
-        Assert.assertThat(body, Matchers.is("THROW is not a valid argument!"));
+        assertThat(body).isEqualTo("THROW is not a valid argument!");
     }
 
 }
