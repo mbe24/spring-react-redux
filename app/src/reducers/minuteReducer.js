@@ -3,10 +3,10 @@ import * as ACTION from '../actions/actionTypes';
 const initialState = {
   hour: '00',
   minute: '00',
-  second: '00'
+  second: '00',
 };
 
-export default (state = initialState, action) => {
+const minuteReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTION.FETCH_MINUTE:
       return { ...state, minute: action.payload };
@@ -16,3 +16,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default minuteReducer;

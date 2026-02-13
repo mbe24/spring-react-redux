@@ -8,9 +8,6 @@ class Minute extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ minute: state.minuteReducer.minute });
+const mapStateToProps = (state) => ({ minute: state.minuteReducer.minute });
 
-export default connect(
-  mapStateToProps,
-  null
-)(Minute);
+export default connect(mapStateToProps, null)(Minute);

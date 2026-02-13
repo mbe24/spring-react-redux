@@ -8,9 +8,6 @@ class Second extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ second: state.secondReducer.second });
+const mapStateToProps = (state) => ({ second: state.secondReducer.second });
 
-export default connect(
-  mapStateToProps,
-  null
-)(Second);
+export default connect(mapStateToProps, null)(Second);
