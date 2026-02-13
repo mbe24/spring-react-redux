@@ -5,8 +5,8 @@ POC client/server application with a frontend based on React and Redux and a bac
 
 ### Backend
 - **Spring Boot**: 3.4.2
-- **Java**: 17
-- **Gradle**: 8.11.1
+- **Java**: 21 LTS
+- **Gradle**: 9.3.1
 
 ### Frontend
 - **React**: 18.3.1
@@ -15,7 +15,7 @@ POC client/server application with a frontend based on React and Redux and a bac
 
 ## Requirements
 
-- Java 17 or higher
+- Java 21 or higher
 - Node.js 18 or higher
 - npm 8 or higher
 
