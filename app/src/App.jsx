@@ -12,7 +12,7 @@ import { fetchTime, fetchTimePoll } from './actions/timeActions';
 //  return { hour: store.hour, minute: store.minute, second: store.second };
 //})
 class App extends React.Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTimePoll();
   }
 
